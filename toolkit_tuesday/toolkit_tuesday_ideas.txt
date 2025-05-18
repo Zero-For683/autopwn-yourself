@@ -1,0 +1,71 @@
+----------------------------
+Re-implementation
+----------------------------
+
+- Nmap clone
+  ⮕ TCP connect scan, SYN scan, banner grabbing
+
+- Password Generator
+  ⮕  Generate a list of passwords to attempt brute-forcing with (like mr robot)
+
+- Hydra (brute-force login tool)
+  ⮕ Target SSH, FTP, HTTP Basic Auth, etc.
+
+- Impacket clone (partial)
+  ⮕ Rebuild tools like `psexec.py`, `smbclient.py`, `secretsdump.py`
+
+- Dirbuster clone (ffuf / dirb)
+  ⮕ Wordlist-based URL brute-forcer with threading
+
+- DNS brute-forcer
+  ⮕ Enumerate subdomains, resolve via `socket.gethostbyname`
+
+- Whois or IP geolocation tool
+  ⮕ Wrap online APIs to enrich IPs/domains
+
+- Custom `netcat` clone
+  ⮕ TCP/UDP listener/sender with file transfer
+
+- AutoRecon clone
+  ⮕ Port all the tools into your own autorecon tool
+
+----------------------------
+Standalone Useful Tools
+----------------------------
+
+- Exploit compiler for linux post-exploitation
+  ⮕ Automatically compile exploits for linux systems based on arch/cpu type, etc...
+
+- Nmap XML parser
+  ⮕ Extract open ports, OS guesses, scripts
+
+- Hash Regex Finder
+  ⮕  Copy/paste any output to quickly pull hashes and output into clean txt files
+
+- Hash cracking automation
+  ⮕ Parse hashes, auto-detect format, call `hashcat` or CrackStation
+
+- NTDS.dit parser
+  ⮕ Extract and format credentials for `netexec`, `evil-winrm`, etc.
+
+- File scanner for secrets
+  ⮕ Find AWS keys, tokens, passwords in source code files
+
+- Basic param fuzzer
+  ⮕ Feed a URL + wordlist, fuzz query params (`?test=FUZZ`)
+
+- Reverse whois/email lookup wrapper
+  ⮕ Use public APIs to enrich targets from recon data
+
+----------------------------
+Bonus: Utility Libraries / CLI Wrappers
+----------------------------
+
+- Subprocess wrapper
+  ⮕ Sanitize input, timeout control, stderr/stdout separation
+
+- File converter
+  JSON ⮕  CSV, CSV ⮕  JSON, TXT ⮕  JSON, XML ⮕  JSON, JSON ⮕ HTML, YAML ⮕  JSON, HTML ⮕ TXT
+
+- Script launcher menu
+  ⮕ One terminal menu to launch your tools (like a poor man’s Cobalt Strike)

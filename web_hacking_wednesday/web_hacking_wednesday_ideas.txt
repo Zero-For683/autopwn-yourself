@@ -1,0 +1,26 @@
+Bug types to automate: 
+
+SSRF
+XSS/DOM/STORED
+SQL
+LFI
+IDOR
+File Upload
+XXE
+API
+CSRF
+CORS
+
+
+---
+Advanced:
+
+Insecure Deserialization
+SSTI (Server-side template injection)
+JWT Attacks
+HTTP Request Smuggling
+HTTP Host Header Attacks
+
+Prototype Pollution (Need source code)
+
+

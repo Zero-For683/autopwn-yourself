@@ -1,0 +1,18 @@
+nmap
+sqlmap
+whois
+mimikatz
+bloodhound.py
+responder
+netexec
+dnsenum
+ffuf/dirb/dirbuster
+XSStrike
+Arjun
+Impacket Tools
+Silver (C2 agent)
+hash-identifier
+john/hashcat
+kerbrute
+metasploit stagers
+

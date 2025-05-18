@@ -1,0 +1,39 @@
+----------------------------
+Text & Pattern Extraction
+----------------------------
+
+- Extract email addresses
+- Extract domain names from a list of URLs
+- Pull out base64-encoded strings from binary blobs
+- Decode base64, hex, or rot13 automatically
+
+----------------------------
+Hashing & Encoding
+----------------------------
+
+- Encode/decode data using base64, rot13, hex
+- XOR a string with a single-byte or repeating key
+- Encrypt/decrypt with AES-CBC using passphrase
+- Convert Windows SAM or NTDS dump to `user:hash` format
+
+----------------------------
+ool Integration Wrappers
+----------------------------
+
+- Convert Burp Suite HTTP requests (from `.txt` or `.xml`) into Python requests
+
+----------------------------
+Offensive Helper Functions
+----------------------------
+
+- Generate random User-Agent strings
+- Convert payloads into obfuscated PowerShell strings
+- Format `curl` commands from payload templates
+- Detect and strip null bytes from shellcode
+
+----------------------------
+Misc. For Practice
+----------------------------
+
+- Extract metadata from image or document (EXIF, docx info)
+- Strip metadata from images/documents
