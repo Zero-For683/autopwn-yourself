@@ -11,6 +11,7 @@ API
 CSRF
 CORS
 
+Brute-forcing login
 
 ---
 Advanced:
