@@ -1,0 +1,25 @@
+{
+    "URL": "https://0a88000d0358300282c8011900c700fa.web-security-academy.net/login",
+    "Method": "GET",
+    "HTTP Version": "Unknown",
+    "Request Headers": {
+        "host": "0a88000d0358300282c8011900c700fa.web-security-academy.net",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "*/*",
+        "accept-language": "en-US;q=0.9,en;q=0.8",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.6668.71 Safari/537.36",
+        "connection": "close",
+        "cache-control": "max-age=0",
+        "referer": "https://0a88000d0358300282c8011900c700fa.web-security-academy.net/my-account",
+        "cookie": "session=4UaNUvjoakfCnUHuRMZhd62jGnFG2vfa"
+    },
+    "Response Headers": {
+        "content-type": "text/html; charset=utf-8",
+        "x-frame-options": "SAMEORIGIN",
+        "content-length": "3128"
+    },
+    "URL Parameters": {},
+    "HTML Content": "<!DOCTYPE html>\n<html>\n    <head>\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\n        <link href=/resources/css/labs.css rel=stylesheet>\n        <title>Basic SSRF against the local server</title>\n    </head>\n    <body>\n        <script src=\"/resources/labheader/js/labHeader.js\"></script>\n        <div id=\"academyLabHeader\">\n            <section class='academyLabBanner'>\n                <div class=container>\n                    <div class=logo></div>\n                        <div class=title-container>\n                            <h2>Basic SSRF against the local server</h2>\n                            <a class=link-back href='https://portswigger.net/web-security/ssrf/lab-basic-ssrf-against-localhost'>\n                                Back&nbsp;to&nbsp;lab&nbsp;description&nbsp;\n                                <svg version=1.1 id=Layer_1 xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x=0px y=0px viewBox='0 0 28 30' enable-background='new 0 0 28 30' xml:space=preserve title=back-arrow>\n                                    <g>\n                                        <polygon points='1.4,0 0,1.2 12.6,15 0,28.8 1.4,30 15.1,15'></polygon>\n                                        <polygon points='14.3,0 12.9,1.2 25.6,15 12.9,28.8 14.3,30 28,15'></polygon>\n                                    </g>\n                                </svg>\n                            </a>\n                        </div>\n                        <div class='widgetcontainer-lab-status is-notsolved'>\n                            <span>LAB</span>\n                            <p>Not solved</p>\n                            <span class=lab-status-icon></span>\n                        </div>\n                    </div>\n                </div>\n            </section>\n        </div>\n        <div theme=\"\">\n            <section class=\"maincontainer\">\n                <div class=\"container is-page\">\n                    <header class=\"navigation-header\">\n                        <section class=\"top-links\">\n                            <a href=/>Home</a><p>|</p>\n                            <a href=\"/my-account\">My account</a><p>|</p>\n                        </section>\n                    </header>\n                    <header class=\"notification-header\">\n                    </header>\n                    <h1>Login</h1>\n                    <section>\n                        <form class=login-form method=POST action=\"/login\">\n                            <input required type=\"hidden\" name=\"csrf\" value=\"vJYk02xlVEtmy6XabEuOpNzrvXdyZt69\">\n                            <label>Username</label>\n                            <input required type=username name=\"username\" autofocus>\n                            <label>Password</label>\n                            <input required type=password name=\"password\">\n                            <button class=button type=submit> Log in </button>\n                        </form>\n                    </section>\n                </div>\n            </section>\n            <div class=\"footer-wrapper\">\n            </div>\n        </div>\n    </body>\n</html>",
+    "POST Body": "",
+    "POST Parameters": {}
+}

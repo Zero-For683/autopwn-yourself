@@ -1,0 +1,33 @@
+{
+    "URL": "https://0a31004e032d119383f19b2800e70021.web-security-academy.net/product?productId=1",
+    "Method": "GET",
+    "HTTP Version": "Unknown",
+    "Request Headers": {
+        "host": "0a31004e032d119383f19b2800e70021.web-security-academy.net",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+        "accept-language": "en-US;q=0.9,en;q=0.8",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36",
+        "connection": "close",
+        "cache-control": "max-age=0",
+        "cookie": "session=AsfkWim7Gs5IVzFOStwMoKRoymbW7Syr",
+        "upgrade-insecure-requests": "1",
+        "referer": "https://0a31004e032d119383f19b2800e70021.web-security-academy.net/",
+        "sec-ch-ua": "\"Chromium\";v=\"133\", \"Not;A=Brand\";v=\"24\", \"Google Chrome\";v=\"133\"",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "sec-ch-ua-mobile": "?0"
+    },
+    "Response Headers": {
+        "content-type": "text/html; charset=utf-8",
+        "x-frame-options": "SAMEORIGIN",
+        "content-length": "3958"
+    },
+    "URL Parameters": {
+        "productId": [
+            "1"
+        ]
+    },
+    "HTML Content": "<!DOCTYPE html>\n<html>\n    <head>\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\n        <link href=/resources/css/labsEcommerce.css rel=stylesheet>\n        <title>Blind SSRF with out-of-band detection</title>\n    </head>\n    <body>\n        <script src=\"/resources/labheader/js/labHeader.js\"></script>\n        <div id=\"academyLabHeader\">\n            <section class='academyLabBanner'>\n                <div class=container>\n                    <div class=logo></div>\n                        <div class=title-container>\n                            <h2>Blind SSRF with out-of-band detection</h2>\n                            <a class=link-back href='https://portswigger.net/web-security/ssrf/blind/lab-out-of-band-detection'>\n                                Back&nbsp;to&nbsp;lab&nbsp;description&nbsp;\n                                <svg version=1.1 id=Layer_1 xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x=0px y=0px viewBox='0 0 28 30' enable-background='new 0 0 28 30' xml:space=preserve title=back-arrow>\n                                    <g>\n                                        <polygon points='1.4,0 0,1.2 12.6,15 0,28.8 1.4,30 15.1,15'></polygon>\n                                        <polygon points='14.3,0 12.9,1.2 25.6,15 12.9,28.8 14.3,30 28,15'></polygon>\n                                    </g>\n                                </svg>\n                            </a>\n                        </div>\n                        <div class='widgetcontainer-lab-status is-notsolved'>\n                            <span>LAB</span>\n                            <p>Not solved</p>\n                            <span class=lab-status-icon></span>\n                        </div>\n                    </div>\n                </div>\n            </section>\n        </div>\n        <div theme=\"ecommerce\">\n            <section class=\"maincontainer\">\n                <div class=\"container is-page\">\n                    <header class=\"navigation-header\">\n                        <section class=\"top-links\">\n                            <a href=/>Home</a><p>|</p>\n                        </section>\n                    </header>\n                    <header class=\"notification-header\">\n                    </header>\n                    <section class=\"product\">\n                        <h3>Hitch A Lift</h3>\n                        <img src=\"/resources/images/rating1.png\">\n                        <div id=\"price\">$36.27</div>\n                        <img src=\"/image/productcatalog/products/46.jpg\">\n                        <label>Description:</label>\n                        <p>There was a time when we all thought by car sharing we were helping to save our planet. Even this is an outdated convention, and things have rapidly moved on. We would like to reduce the number of cars on the road even further, aiming one day for it to be none at all.</p>\n<p>This is where we come in, our new 'Hitch A Lift' harness is the future of commuting, improving life on earth, and boosting our own health and fitness in the process. Just strap on a buddy and use what God gave you to get yourselves to work.</p>\n<p>One of you might be stronger than the other, but you can still take it in turns as our harness can be attached, and unattached, in seconds. There is a maximum recommended weight of 224 lbs so choose your hitch buddy wisely.</p>\n<p>It is important that the weaker of the two get some practice in, you don't want to lose muscle power by not using those legs and upper body strength for long periods of time. Say goodbye to traffic jams and pollution, hitch up with a buddy today.</p>\n                        <div class=\"is-linkback\">\n                            <a href=\"/\">Return to list</a>\n                        </div>\n                    </section>\n                </div>\n            </section>\n            <div class=\"footer-wrapper\">\n            </div>\n        </div>\n    </body>\n</html>",
+    "POST Body": "",
+    "POST Parameters": {}
+}

@@ -1,0 +1,35 @@
+{
+    "URL": "https://0a570010036e37828575547e00a60092.web-security-academy.net/product/stock",
+    "Method": "POST",
+    "HTTP Version": "Unknown",
+    "Request Headers": {
+        "host": "0a570010036e37828575547e00a60092.web-security-academy.net",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "*/*",
+        "accept-language": "en-US;q=0.9,en;q=0.8",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36",
+        "connection": "close",
+        "cache-control": "max-age=0",
+        "cookie": "session=mzwBgzAclAYIWh0jHYZ3eA6PTbgnV4D5",
+        "origin": "https://0a570010036e37828575547e00a60092.web-security-academy.net",
+        "referer": "https://0a570010036e37828575547e00a60092.web-security-academy.net/product?productId=20",
+        "content-type": "application/x-www-form-urlencoded",
+        "sec-ch-ua": "\"Chromium\";v=\"133\", \"Not;A=Brand\";v=\"24\", \"Google Chrome\";v=\"133\"",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "sec-ch-ua-mobile": "?0",
+        "content-length": "108"
+    },
+    "Response Headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "x-frame-options": "SAMEORIGIN",
+        "content-length": "3"
+    },
+    "URL Parameters": {},
+    "HTML Content": "494",
+    "POST Body": "stockApi=http%3A%2F%2Fstock.weliketoshop.net%3A8080%2Fproduct%2Fstock%2Fcheck%3FproductId%3D20%26storeId%3D1",
+    "POST Parameters": {
+        "stockApi": [
+            "http://stock.weliketoshop.net:8080/product/stock/check?productId=20&storeId=1"
+        ]
+    }
+}

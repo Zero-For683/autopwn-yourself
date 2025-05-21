@@ -1,0 +1,25 @@
+{
+    "URL": "https://0a88000d0358300282c8011900c700fa.web-security-academy.net/my-account",
+    "Method": "GET",
+    "HTTP Version": "Unknown",
+    "Request Headers": {
+        "host": "0a88000d0358300282c8011900c700fa.web-security-academy.net",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "*/*",
+        "accept-language": "en-US;q=0.9,en;q=0.8",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.6668.71 Safari/537.36",
+        "connection": "close",
+        "cache-control": "max-age=0",
+        "referer": "https://0a88000d0358300282c8011900c700fa.web-security-academy.net/",
+        "cookie": "session=4UaNUvjoakfCnUHuRMZhd62jGnFG2vfa"
+    },
+    "Response Headers": {
+        "location": "/login",
+        "x-frame-options": "SAMEORIGIN",
+        "content-length": "0"
+    },
+    "URL Parameters": {},
+    "HTML Content": "",
+    "POST Body": "",
+    "POST Parameters": {}
+}
