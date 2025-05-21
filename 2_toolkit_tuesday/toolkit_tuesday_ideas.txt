@@ -7,6 +7,8 @@ Re-implementation
 
 - Password Generator
   ⮕  Generate a list of passwords to attempt brute-forcing with (like mr robot)
+  ⮕  Generate a list of waterfall passwords (qwerty, 1qaz2wsx, etc...) 
+
 
 - Hydra (brute-force login tool)
   ⮕ Target SSH, FTP, HTTP Basic Auth, etc.
