@@ -18,25 +18,30 @@ Build the core primitives used in real-world offensive tooling and malware.
 **Repeatable by:**
 Rebuilding known malware tricks and shellcode tools. Draw inspiration from:
 - PayloadsAllTheThings
-- Red Team Tradecraft
+- Hacktricks
 - Real malware analysis blogs
+- Offesc courses
+
+TL;DR - Build malware focusing on key principles we learn, endless source of content.
 
 ---
 
 ## 🛠️ Toolkit Tuesday
 
-**Focus:** Building your own standalone tools  
-Write the kinds of CLI utilities that support your offensive workflow.
+**Focus:** Build your own original utilities to support hacking workflows  
+Make small, standalone tools you’d want in your personal toolkit.
 
 **Examples:**
-- Port scanners, DNS brute-forcers, directory brute tools
-- Nmap XML parser or greppable output analyzer
-- Hash dump parsers, NTLM formatter
-- HTTP header extractors
+- Custom port scanner with color-coded output
+- Hash identifier and formatter
+- AD object lister via LDAP
+- JWT inspector or decoder
 
 **Repeatable by:**
-Reimplementing tools like:
-- `dirb`, `ffuf`, `enum4linux`, `hashcat`, `dnsenum`, etc.
+Brainstorming common tasks that slow you down—and building something that fixes them. Focus on automation and convenience.
+
+
+TL;DR - Build tools that are commonly used, but make them your own. 
 
 ---
 
@@ -54,37 +59,41 @@ Use Python to build tools that help find and exploit bugs in real web apps.
 **Repeatable by:**
 Studying bug bounty writeups and PortSwigger Web Security Academy, then automating payload generation, fuzzing, or interaction.
 
+It will take a while to have a "stack" for each bug class. Until then the "stacks" will be fairly weak
+
 ---
 
 ## 🔁 Tool Rebuild Thursday
 
-**Focus:** Clone real hacking tools to learn how they work  
-Pick a tool and rebuild part or all of it from scratch.
+**Focus:** Rebuild popular tools to understand their internals  
+Clone tools you use (or rely on) and recreate key functionality.
 
 **Examples:**
-- Simple Nmap clone (TCP/UDP scan with banner grabbing)
-- Sublist3r or ffuf reimplementation
-- SQLMap-lite or CrackMapExec-lite
-- Whois, DNS, FTP, HTTP tools
+- Rebuild part of ffuf to learn fuzzing
+- Clone CrackMapExec’s SMB login scanner
+- Emulate impacket scripts
+- Reimplement `kerbrute` to brute-force usernames
 
 **Repeatable by:**
-Keeping a long list of tools you use regularly and recreating 10–20% of their functionality. Learn by building.
+Keeping a running list of tools you *use but don’t understand*. Pick one, dig into a feature, and rebuild it piece by piece.
+
+TL;DR - Today is the day to study others who are better and not be a skid blindly using tools we dont understand
 
 ---
 
-## ⚙️ Function Friday
+## 🔨 Function Forge Friday
 
-**Focus:** Python fluency through utility function development  
-Write useful helper functions and small classes to reinforce core Python skills.
+**Focus:** Take what you learned from the week (e.g., HTB, labs) and script it  
+Turn a real-world technique into a single function or mini-script.
 
 **Examples:**
-- Regex extractors for IPs, URLs, emails
-- Argparse templates and CLI scaffolding
-- File parsing (CSV, JSON, XML)
-- Subprocess wrappers and logging utilities
+- Function to parse `secretsdump` output into usable creds
+- Payload encoder (Base64, XOR, etc.)
+- Auto-exploit wrapper for a found CVE
+- Script to automate reverse shell from a web RCE
 
 **Repeatable by:**
-Turning small challenges or manual tasks into reusable scripts. Use LeetCode problems as input and turn them into mini tools with real output.
+Do any lab/HTB box. Pick one action that was tedious. Write a function that would’ve made it faster.
 
 ---
 

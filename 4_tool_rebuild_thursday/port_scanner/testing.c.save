@@ -1,0 +1,42 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+// Define a struct (like a Python class)
+struct Target {
+    std::string ip;
+    std::vector<int> openPorts;
+};
+
+// Function that modifies the target list using pointers and references
+void modifyTargets(std::vector<Target*> &targets) {
+    // Change the IP of the first target
+    targets[0]->ip = "192.168.0.99";
+    // Add an open port to the first target
+    targets[0]->openPorts.push_back(22);
+}
+
+int main() {
+    // Create a Target object (like t = Target() in Python)
+    Target t;
+    t.ip = "192.168.0.1";
+
+    // Create a vector to hold pointers to Target objects
+    std::vector<Target*> targetList;
+
+    // Add a pointer to t into the vector
+    targetList.push_back(&t);
+
+    // Call a function that modifies the Target via reference/pointer
+    modifyTargets(targetList);
+
+    // Print the modified Target
+    std::cout << "IP: " << t.ip << std::endl;
+    std::cout << "Open ports: ";
+    for (int port : t.openPorts) {
+        std::cout << port << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
