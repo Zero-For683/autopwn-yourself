@@ -1,4 +1,12 @@
 ----------------------------
+HACKING
+----------------------------
+- CVE-2024-53677.py (one on GitHub doesn't work) HTB MACHINE: Strutted
+- JSP/ASPX/PHP revshell brute-forcer (if you have a shell and just want to try everything until one works and gives you a shell) - HTB MACHINE: Strutted
+
+
+
+----------------------------
 Text & Pattern Extraction
 ----------------------------
 
