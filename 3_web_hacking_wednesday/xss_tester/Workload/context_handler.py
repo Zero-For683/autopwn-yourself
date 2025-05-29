@@ -1,5 +1,13 @@
 from bs4 import BeautifulSoup
 
+"""
+   This is a high-priority file to improve. 
+
+   We need to better-identify the context of our markers for more precision
+
+   After, we need to give better context for more accurate payload generation.
+   The better context, the more advanced our core-payloads can be 
+    """
 
 def classify_context(html_text: str, marker: str) -> str:
     """

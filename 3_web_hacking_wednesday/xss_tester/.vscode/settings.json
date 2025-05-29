@@ -1,0 +1,5 @@
+{
+  "python.defaultInterpreterPath": ".xss_tester/bin/python",
+  "python.venvPath": "${workspaceFolder}/.xss_tester",
+  "python.analysis.extraPaths": ["${workspaceFolder}"]
+}

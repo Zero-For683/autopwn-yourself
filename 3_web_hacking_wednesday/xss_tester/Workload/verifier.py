@@ -3,6 +3,14 @@ import httpx
 from playwright.async_api import async_playwright
 from request_builder import build_request
 
+'''
+    This is a high priority file to work on
+
+    We need SOLID, 100% accuracy (or as damn close to 100% as we can get) on whether or not XSS was actually executed
+
+    This will significantly reduce the number of false-positives if we can nail this. 
+    '''
+
 async def send_request(client: httpx.AsyncClient,
                        method: str,
                        url: str,
@@ -30,7 +38,7 @@ async def send_request(client: httpx.AsyncClient,
         return None
 
 
-async def test_payloads(req_json, core_payloads, source, param):
+async def test_payloads(req_json, core_payloads, source, param): # This doesnt test in-browser yet!!! THIS NEEDS TO HAPPEN. 
     """
     Fire each payload in core_payloads at the given source/param.
     Return a list of (payload, executed) tuples, but bail out on the first request failure.
@@ -45,16 +53,16 @@ async def test_payloads(req_json, core_payloads, source, param):
         try:
             resp = await client.request(method, url, headers=headers, data=data)
         except Exception as e:
-            # ❌ tell me exactly which payload + param died, then stop
+            # ❌ tell me exactly which payload + param died, then continue
             print(f"    [error] Core payload request FAILED for param '{param}' payload {payload!r}: {e}")
             print(f"    [debug] → Aborting core payload loop for '{param}' and moving on\n")
-            break
+            continue # before this was break. I dont want to stop testing just because a single one didnt work
 
         # ✅ we got *some* response — show me the status
         print(f"    [debug] Received HTTP {resp.status_code} for payload {payload!r} on '{param}'")
 
         # your existing XSS-execution check (whatever it is)
-        executed = payload in resp.text  # or however you detect execution
+        executed = payload in resp.text  # just a placeholder for now. IT DOES NOT ACTUALLY SEE IF XSS WAS EXECUTED
         print(f"        [verify] {payload!r} → executed={executed}")
 
         results.append((payload, executed))
@@ -71,12 +79,3 @@ async def verify_in_browser(source, param, payload) -> bool:
     # ... your existing code ...
     pass
 
-
-# Example standalone usage
-if __name__ == '__main__':
-    import json
-    with open('request_1.json', encoding='utf-8') as f:
-        req = json.load(f)
-    sample = ["alert('z0f863')"]
-    out = asyncio.run(test_payloads(req, sample, 'url', 'search'))
-    print(out)

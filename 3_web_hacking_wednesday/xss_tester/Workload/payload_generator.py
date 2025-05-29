@@ -1,6 +1,13 @@
 from skeleton import SKELETONS # Phase 1 payloads
 from events_tags import all_tags, non_interactive_events # For phase 2 / Full matrix payloads
 
+"""
+    This is a high-priority file to focus on as well
+
+    As we get better context of our markers, we need to be able to supply more advanced/specific payloads
+
+    50-100 core payloads is acceptable, since the end-goal here is to have this be running 24/7
+    """
 
 def generate_core_payloads(
     context: str,
