@@ -43,23 +43,63 @@ def leet_mutate(wordlist):
             leet_words.append(''.join(combo))
     return leet_words
 
-def suffix_mutator(wordlist):
-    common_suffixes = ['', '1', '12', '123', '1234', '12345', '321', '007',
+def suffix_mutator(wordlist, extra_suffixes=None):
+    common_suffixes = ['', '1', '12', '123', '1234', '12345',
                        '!', '!!', '1!', '!1', '@', '#', '$', '%', '?', '*',
-                       '123!', '1234!', '1@3', '/1']
+                       '123!', '1234!', '/1', '_', '__']
+
+    if extra_suffixes:
+        common_suffixes += extra_suffixes
+
     mutated = []
     for word in wordlist:
         for suffix in common_suffixes:
             mutated.append(word + suffix)
     return mutated
 
-def prefix_mutator(wordlist):
-    common_prefixes = ['', '!', '@', '#', '$', '%', '*', '1', '0']
+def prefix_mutator(wordlist, extra_prefixes=None):
+    common_prefixes = ['', '!', '@', '#', '$', '%', '*', '1', '0', '_', '__']
+
+    if extra_prefixes:
+        common_prefixes += extra_prefixes
+
     mutated = []
     for word in wordlist:
         for prefix in common_prefixes:
             mutated.append(prefix + word)
     return mutated
+
+def get_date_variants(dates):
+    last_two = [d[-2:] for d in dates if len(d) == 4 and d.isdigit()]
+    reversed_dates = [d[::-1] for d in dates]
+    combined = dates + last_two + reversed_dates
+
+    separators = ['', '_', '-', '.', '!', '/']
+    all_formatted = []
+
+    for date in combined:
+        for sep in separators:
+            all_formatted.append(f"{sep}{date}")  # for suffix
+            all_formatted.append(f"{date}{sep}")  # for prefix
+
+    return list(set(all_formatted))
+
+def combine_with_dates(wordlist, date_variants):
+    combined = []
+    for word in wordlist:
+        for date in date_variants:
+            combined.append(word + date)
+    return combined
+
+
+def read_wordlist(filename):
+    try:
+        with open(filename, 'r') as f:
+            return [line.strip() for line in f if line.strip()]
+    except FileNotFoundError:
+        print(f"[!] Wordlist '{filename}' not found.")
+        return []
+
 
 def parse_args():
     parser = argparse.ArgumentParser(description="keygn: Personal wordlist generator")
@@ -68,28 +108,47 @@ def parse_args():
     parser.add_argument('--suffix', action='store_true', help='Apply common suffixes')
     parser.add_argument('--prefix', action='store_true', help='Apply common prefixes')
     parser.add_argument('--output', default='keygn_output.txt', help='Output file name')
+    parser.add_argument('--dates', nargs='+', help='List of important dates (e.g. 1995 07 2020)')
+    parser.add_argument('--rockyou', action='store_true', help='Include top5000 passwords from rockyou.txt')
+    parser.add_argument('--waterfall', action='store_true', help='Include waterfall/keyboard-walk passwords (roughly 7k passwords)')
     return parser.parse_args()
 
 def main():
     args = parse_args()
 
-    # Step 1: Normalize and capitalize
-    keywords = capitalize_words(args.words)
+    # Step 1: Normalize
+    args.words = [word.lower() for word in args.words]
+    keywords_uppercase = capitalize_words(args.words)
 
-    # Step 2: Combine words
-    combos = generate_combinations(keywords)
-    pre_mutation = keywords + combos
+    # Step 2: Base combos
+    combos_upper = generate_combinations(keywords_uppercase)
+    combos_lower = generate_combinations(args.words)
+    pre_mutation = keywords_uppercase + combos_lower + combos_upper
 
-    # Step 3: Leetspeak if enabled
-    mutated = leet_mutate(pre_mutation) if args.leet else pre_mutation
+    # Step 3: Optional date-aware combos
+    if args.dates:
+        date_variants = get_date_variants(args.dates)
+        pre_mutation += combine_with_dates(pre_mutation, date_variants)
 
-    # Step 4: Prefix/suffix if enabled
+
+    # Step 4: Begin mutations
+    mutated = pre_mutation.copy()
+
+    if args.leet:
+        mutated += leet_mutate(pre_mutation)
+
     if args.prefix:
         mutated = prefix_mutator(mutated)
     if args.suffix:
         mutated = suffix_mutator(mutated)
 
-    # Step 5: Write results
+
+
+    if args.rockyou:
+        mutated += read_wordlist("top5000.txt")
+    if args.waterfall:
+        mutated += read_wordlist("combo_walks.txt")
+
     with open(args.output, 'w') as f:
         for word in sorted(set(mutated)):  # deduplicate
             f.write(word + '\n')

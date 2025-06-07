@@ -6,10 +6,6 @@ def url_encode(s: str) -> str:
     # Percent-encode every reserved/unsafe char
     return urllib.parse.quote(s, safe="")
 
-def url_encode_plus(s: str) -> str:
-    # Like quote(), but also encodes spaces as “+”
-    return urllib.parse.quote_plus(s)
-
 def double_url_encode(s: str) -> str:
     # Run percent-encode twice
     return urllib.parse.quote(url_encode(s), safe="")
