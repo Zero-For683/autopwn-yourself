@@ -1,10 +1,10 @@
-# 🧠 Hacker Dev Menu: Daily Python Projects for Offensive Security
+# Hacker Dev Menu: Daily Python Projects for Offensive Security
 
 This is my structured daily system for improving my Python skills and building practical offensive security tools. Each weekday has a dedicated theme, giving me repeatable, bite-sized coding tasks. Weekends are reserved for longer personal projects or reflection.
 
 ---
 
-## 🦠 Malware Monday
+## Malware Monday
 
 **Focus:** Payload crafting, obfuscation, and shellcode delivery  
 Build the core primitives used in real-world offensive tooling and malware.
@@ -26,7 +26,7 @@ TL;DR - Build malware focusing on key principles we learn, endless source of con
 
 ---
 
-## 🛠️ Toolkit Tuesday
+## Toolkit Tuesday
 
 **Focus:** Build your own original utilities to support hacking workflows  
 Make small, standalone tools you’d want in your personal toolkit.
@@ -45,7 +45,7 @@ TL;DR - Build tools that are commonly used, but make them your own.
 
 ---
 
-## 🌐 Web-Hacking Wednesday
+## Web-Hacking Wednesday
 
 **Focus:** Automate web vulnerability discovery and exploitation  
 Use Python to build tools that help find and exploit bugs in real web apps.
@@ -63,7 +63,7 @@ It will take a while to have a "stack" for each bug class. Until then the "stack
 
 ---
 
-## 🔁 Tool Rebuild Thursday
+## Tool Rebuild Thursday
 
 **Focus:** Rebuild popular tools to understand their internals  
 Clone tools you use (or rely on) and recreate key functionality.
@@ -81,7 +81,7 @@ TL;DR - Today is the day to study others who are better and not be a skid blindl
 
 ---
 
-## 🔨 Function Forge Friday
+## Function Forge Friday
 
 **Focus:** Take what you learned from the week (e.g., HTB, labs) and script it  
 Turn a real-world technique into a single function or mini-script.
@@ -97,7 +97,7 @@ Do any lab/HTB box. Pick one action that was tedious. Write a function that woul
 
 ---
 
-## 🧱 Weekend Projects (Saturday & Sunday)
+## Weekend Projects (Saturday & Sunday)
 
 Reserved for:
 - Larger personal tools
