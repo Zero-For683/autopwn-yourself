@@ -1,4 +1,4 @@
-# Hacker Dev Menu: Daily Python Projects for Offensive Security
+# Daily Python Projects for Offensive Security
 
 This is my structured daily system for improving my Programming skills (mostly in python) and building practical offensive security tools. Each weekday has a dedicated theme, giving me repeatable, "byte"-sized coding tasks.
 
