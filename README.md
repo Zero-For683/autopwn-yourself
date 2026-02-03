@@ -16,8 +16,6 @@ Use Python to build tools that help find and exploit bugs in real web apps.
 
 ---
 
-Help me write the mitre att&ck...Help me write the mitre att&ck detection labs based on my web hacking portion
-```markdown
 ## Web Enumeration
 
 **Focus:** Automate web reconnosaince using tools already built (nmap, feroxbuster, etc...)
